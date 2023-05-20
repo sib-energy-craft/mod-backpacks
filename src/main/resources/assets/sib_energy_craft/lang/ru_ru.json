@@ -1,0 +1,10 @@
+{
+  "item.sib_energy_craft.small_backpack": "Маленький рюкзак",
+  "container.small_backpack": "Маленький рюкзак",
+
+  "item.sib_energy_craft.middle_backpack": "Средний рюкзак",
+  "container.middle_backpack": "Средний рюкзак",
+
+  "item.sib_energy_craft.big_backpack": "Большой рюкзак",
+  "container.big_backpack": "Большой рюкзак"
+}
