@@ -16,14 +16,14 @@ import org.jetbrains.annotations.Nullable;
  * @author sibmaks
  * @since 0.0.1
  */
-public class BackPackScreenHandlerFactory implements NamedScreenHandlerFactory, ExtendedScreenHandlerFactory {
+public class WearableStorageScreenHandlerFactory implements NamedScreenHandlerFactory, ExtendedScreenHandlerFactory {
     private final ScreenHandlerFactory screenHandlerFactory;
     private final ItemStack backPackStack;
     private final String screenTitle;
 
-    public BackPackScreenHandlerFactory(@NotNull ScreenHandlerFactory screenHandlerFactory,
-                                        @NotNull ItemStack backPackStack,
-                                        @NotNull String screenTitle) {
+    public WearableStorageScreenHandlerFactory(@NotNull ScreenHandlerFactory screenHandlerFactory,
+                                               @NotNull ItemStack backPackStack,
+                                               @NotNull String screenTitle) {
         this.screenHandlerFactory = screenHandlerFactory;
         this.backPackStack = backPackStack;
         this.screenTitle = screenTitle;

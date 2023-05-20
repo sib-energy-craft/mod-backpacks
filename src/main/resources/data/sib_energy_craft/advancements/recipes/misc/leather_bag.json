@@ -1,0 +1,47 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "sib_energy_craft:leather_bag"
+    ]
+  },
+  "criteria": {
+    "has_dressed_leather": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "sib_energy_craft:dressed_leather"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_string": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:string"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "sib_energy_craft:leather_bag"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_dressed_leather",
+      "has_string",
+      "has_the_recipe"
+    ]
+  ]
+}

@@ -13,17 +13,17 @@ import org.jetbrains.annotations.NotNull;
  * @author sibmaks
  * @since 0.0.1
  */
-public abstract class BackPackScreen<T extends BackPackScreenHandler> extends HandledScreen<T> {
+public abstract class WearableStorageScreen<T extends WearableStorageScreenHandler> extends HandledScreen<T> {
 
     protected final Identifier texture;
 
-    public BackPackScreen(@NotNull Identifier texture,
-                          @NotNull T handler,
-                          @NotNull PlayerInventory inventory,
-                          @NotNull Text title,
-                          int backgroundWidth,
-                          int backgroundHeight,
-                          int playerInventoryTitleBottomOffset) {
+    public WearableStorageScreen(@NotNull Identifier texture,
+                                 @NotNull T handler,
+                                 @NotNull PlayerInventory inventory,
+                                 @NotNull Text title,
+                                 int backgroundWidth,
+                                 int backgroundHeight,
+                                 int playerInventoryTitleBottomOffset) {
         super(handler, inventory, title);
         this.texture = texture;
         this.titleY = 6;

@@ -1,0 +1,60 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "sib_energy_craft:simple_backpack"
+    ]
+  },
+  "criteria": {
+    "has_leather_bag": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "sib_energy_craft:leather_bag"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_leather_packet": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "sib_energy_craft:leather_packet"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_string": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:string"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "sib_energy_craft:simple_backpack"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_leather_bag",
+      "has_leather_packet",
+      "has_string",
+      "has_the_recipe"
+    ]
+  ]
+}

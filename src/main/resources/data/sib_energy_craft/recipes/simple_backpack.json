@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " - ",
+    "P#P",
+    "- -"
+  ],
+  "key": {
+    "-": {
+      "item": "minecraft:string"
+    },
+    "#": {
+      "item": "sib_energy_craft:leather_bag"
+    },
+    "P": {
+      "item": "sib_energy_craft:leather_packet"
+    }
+  },
+  "result": {
+    "item": "sib_energy_craft:simple_backpack"
+  },
+  "show_notification": true
+}

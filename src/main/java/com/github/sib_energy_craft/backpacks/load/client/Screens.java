@@ -12,16 +12,19 @@ import static com.github.sib_energy_craft.sec_utils.utils.ScreenUtils.register;
  * @since 0.0.1
  */
 public final class Screens implements DefaultClientModInitializer {
-    public static final ScreenHandlerType<SmallBackPackScreenHandler> SMALL_BACKPACK;
-    public static final ScreenHandlerType<MiddleBackPackScreenHandler> MIDDLE_BACKPACK;
-    public static final ScreenHandlerType<BigBackPackScreenHandler> BIG_BACKPACK;
+    public static final ScreenHandlerType<LeatherPacketScreenHandler> LEATHER_PACKET;
+    public static final ScreenHandlerType<LeatherBagScreenHandler> LEATHER_BAG;
+    public static final ScreenHandlerType<SimpleBackPackScreenHandler> SIMPLE_BACKPACK;
+    public static final ScreenHandlerType<CampingBackPackScreenHandler> CAMPING_BACKPACK;
 
     static {
-        SMALL_BACKPACK = register(Identifiers.of("small_backpack"), SmallBackPackScreenHandler::new,
-                SmallBackPackScreen::new);
-        MIDDLE_BACKPACK = register(Identifiers.of("middle_backpack"), MiddleBackPackScreenHandler::new,
-                MiddleBackPackScreen::new);
-        BIG_BACKPACK = register(Identifiers.of("big_backpack"), BigBackPackScreenHandler::new,
-                BigBackPackScreen::new);
+        LEATHER_PACKET = register(Identifiers.of("leather_packet"), LeatherPacketScreenHandler::new,
+                LeatherPacketScreen::new);
+        LEATHER_BAG = register(Identifiers.of("leather_bag"), LeatherBagScreenHandler::new,
+                LeatherBagScreen::new);
+        SIMPLE_BACKPACK = register(Identifiers.of("simple_backpack"), SimpleBackPackScreenHandler::new,
+                SimpleBackPackScreen::new);
+        CAMPING_BACKPACK = register(Identifiers.of("camping_backpack"), CampingBackPackScreenHandler::new,
+                CampingBackPackScreen::new);
     }
 }

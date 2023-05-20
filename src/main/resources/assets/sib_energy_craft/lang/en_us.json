@@ -1,10 +1,15 @@
 {
-  "item.sib_energy_craft.small_backpack": "Small Backpack",
-  "container.small_backpack": "Small Backpack",
+  "item.sib_energy_craft.dressed_leather": "Dressed Leather",
 
-  "item.sib_energy_craft.middle_backpack": "Middle Backpack",
-  "container.middle_backpack": "Middle Backpack",
+  "item.sib_energy_craft.leather_packet": "Leather Packet",
+  "container.leather_packet": "Leather Packet",
 
-  "item.sib_energy_craft.big_backpack": "Big Backpack",
-  "container.big_backpack": "Big Backpack"
+  "item.sib_energy_craft.leather_bag": "Leather Bag",
+  "container.leather_bag": "Leather Bag",
+
+  "item.sib_energy_craft.simple_backpack": "Simple Backpack",
+  "container.simple_backpack": "Simple Backpack",
+
+  "item.sib_energy_craft.camping_backpack": "Camping Backpack",
+  "container.camping_backpack": "Camping Backpack"
 }

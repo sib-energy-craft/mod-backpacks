@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "sib_energy_craft:item/middle_backpack"
+    "layer0": "sib_energy_craft:item/simple_backpack"
   }
 }

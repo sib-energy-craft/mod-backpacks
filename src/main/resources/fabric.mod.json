@@ -16,5 +16,8 @@
     "client": [
       "com.github.sib_energy_craft.backpacks.load.client.Screens"
     ]
-  }
+  },
+  "mixins": [
+    "mod.backpacks.mixin.json"
+  ]
 }

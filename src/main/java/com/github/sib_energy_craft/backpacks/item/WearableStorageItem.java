@@ -3,6 +3,7 @@ package com.github.sib_energy_craft.backpacks.item;
 import lombok.Getter;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.inventory.CraftingInventory;
 import net.minecraft.inventory.Inventories;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.inventory.SimpleInventory;
@@ -10,6 +11,8 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.recipe.ShapedRecipe;
+import net.minecraft.registry.DynamicRegistryManager;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.stat.Stats;
 import net.minecraft.text.MutableText;
@@ -32,10 +35,10 @@ import java.util.Set;
  * @author sibmaks
  * @since 0.0.1
  */
-public class BackPackItem extends Item {
+public class WearableStorageItem extends Item implements ShapedRecipeOnCraft {
     protected static final String INVENTORY_NBT = "inventory";
 
-    protected final BackPackScreenHandlerFactory.ScreenHandlerFactory screenHandlerFactory;
+    protected final WearableStorageScreenHandlerFactory.ScreenHandlerFactory screenHandlerFactory;
     @Getter
     protected final int capacity;
     @Getter
@@ -44,25 +47,17 @@ public class BackPackItem extends Item {
     protected final int height;
     private final String screenTitle;
 
-    public BackPackItem(@NotNull Settings settings,
-                        int width,
-                        int height,
-                        @NotNull BackPackScreenHandlerFactory.ScreenHandlerFactory screenHandlerFactory,
-                        @NotNull String screenTitle) {
+    public WearableStorageItem(@NotNull Settings settings,
+                               int width,
+                               int height,
+                               @NotNull WearableStorageScreenHandlerFactory.ScreenHandlerFactory screenHandlerFactory,
+                               @NotNull String screenTitle) {
         super(settings);
         this.width = width;
         this.height = height;
         this.capacity = width * height;
         this.screenHandlerFactory = screenHandlerFactory;
         this.screenTitle = screenTitle;
-    }
-
-    @Override
-    public void onCraft(@NotNull ItemStack stack,
-                        @NotNull World world,
-                        @NotNull PlayerEntity player) {
-        var inventory = DefaultedList.ofSize(capacity, ItemStack.EMPTY);
-        writeNbt(stack, inventory);
     }
 
     private void writeNbt(@NotNull ItemStack stack,
@@ -83,7 +78,7 @@ public class BackPackItem extends Item {
         if(inSneakingPose) {
             return  TypedActionResult.pass(itemStack);
         }
-        player.openHandledScreen(new BackPackScreenHandlerFactory(screenHandlerFactory, itemStack, screenTitle));
+        player.openHandledScreen(new WearableStorageScreenHandlerFactory(screenHandlerFactory, itemStack, screenTitle));
         player.incrementStat(Stats.USED.getOrCreateStat(this));
         return TypedActionResult.success(itemStack, world.isClient());
     }
@@ -150,6 +145,7 @@ public class BackPackItem extends Item {
     public SimpleInventory getInventory(@NotNull ItemStack itemStack) {
         var nbt = itemStack.getNbt();
         var simpleInventory = new SimpleInventory(capacity);
+        simpleInventory.addListener(sender -> writeNbt(itemStack, simpleInventory.stacks));
         if(nbt == null) {
             return simpleInventory;
         }
@@ -158,22 +154,16 @@ public class BackPackItem extends Item {
         return simpleInventory;
     }
 
-    public void onClosed(@NotNull ItemStack itemStack,
-                         @NotNull SimpleInventory backPackInventory) {
-        writeNbt(itemStack, backPackInventory.stacks);
-    }
-
-
     @Override
     public void appendTooltip(@NotNull ItemStack stack,
                               @Nullable World world,
                               @NotNull List<Text> tooltip,
                               @NotNull TooltipContext context) {
         var item = stack.getItem();
-        if(!(item instanceof BackPackItem backPackItem)) {
+        if(!(item instanceof WearableStorageItem wearableStorageItem)) {
             return;
         }
-        var inventory = backPackItem.getInventory(stack);
+        var inventory = wearableStorageItem.getInventory(stack);
 
         var textColor = Color.GRAY.getRGB();
         var textStyle = Style.EMPTY.withColor(textColor);
@@ -189,5 +179,28 @@ public class BackPackItem extends Item {
         for (var stackName : stackNames) {
             tooltip.add(MutableText.of(stackName.getContent()).setStyle(textStyle));
         }
+    }
+
+    @Override
+    public void onCraft(@NotNull ShapedRecipe shapedRecipe,
+                        @NotNull CraftingInventory craftingInventory,
+                        @NotNull DynamicRegistryManager dynamicRegistryManager,
+                        @NotNull ItemStack itemStack) {
+        var craftedInventory = new SimpleInventory(capacity);
+        for (int i = 0; i < craftingInventory.size(); i++) {
+            var sourceStack = craftingInventory.getStack(i);
+            if(sourceStack.isEmpty()) {
+                continue;
+            }
+            var sourceItem = sourceStack.getItem();
+            if(!(sourceItem instanceof WearableStorageItem wearableStorageItem)) {
+                continue;
+            }
+            var sourceInventory = wearableStorageItem.getInventory(sourceStack);
+            for (ItemStack stack : sourceInventory.stacks) {
+                craftedInventory.addStack(stack);
+            }
+        }
+        writeNbt(itemStack, craftedInventory.stacks);
     }
 }

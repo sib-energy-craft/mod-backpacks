@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "sib_energy_craft:leather_packet",
+    "sib_energy_craft:leather_bag",
+    "sib_energy_craft:simple_backpack",
+    "sib_energy_craft:camping_backpack"
+  ]
+}

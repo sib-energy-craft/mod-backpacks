@@ -1,9 +1,10 @@
 package com.github.sib_energy_craft.backpacks.load;
 
-import com.github.sib_energy_craft.backpacks.item.BackPackItem;
-import com.github.sib_energy_craft.backpacks.screen.BigBackPackScreenHandler;
-import com.github.sib_energy_craft.backpacks.screen.MiddleBackPackScreenHandler;
-import com.github.sib_energy_craft.backpacks.screen.SmallBackPackScreenHandler;
+import com.github.sib_energy_craft.backpacks.item.WearableStorageItem;
+import com.github.sib_energy_craft.backpacks.screen.CampingBackPackScreenHandler;
+import com.github.sib_energy_craft.backpacks.screen.LeatherPacketScreenHandler;
+import com.github.sib_energy_craft.backpacks.screen.SimpleBackPackScreenHandler;
+import com.github.sib_energy_craft.backpacks.screen.LeatherBagScreenHandler;
 import com.github.sib_energy_craft.energy_api.utils.Identifiers;
 import com.github.sib_energy_craft.sec_utils.load.DefaultModInitializer;
 import net.minecraft.item.Item;
@@ -17,40 +18,55 @@ import static com.github.sib_energy_craft.sec_utils.utils.ItemUtils.register;
  * @since 0.0.1
  */
 public final class Items implements DefaultModInitializer {
-    public static final BackPackItem SMALL_BACKPACK;
-    public static final BackPackItem MIDDLE_BACKPACK;
-    public static final BackPackItem BIG_BACKPACK;
+    public static final Item DRESSED_LEATHER;
+    public static final WearableStorageItem LEATHER_PACKET;
+    public static final WearableStorageItem LEATHER_BAG;
+    public static final WearableStorageItem SIMPLE_BACKPACK;
+    public static final WearableStorageItem CAMPING_BACKPACK;
 
     static {
-        var simpleSettings = new Item.Settings()
+        var commonSettings = new Item.Settings()
+                .rarity(Rarity.COMMON);
+        DRESSED_LEATHER = register(ItemGroups.TOOLS, Identifiers.of("dressed_leather"), commonSettings);
+
+        var wearableSettings = new Item.Settings()
                 .rarity(Rarity.COMMON)
                 .maxCount(1);
 
-        var smallBackPackItem = new BackPackItem(
-                simpleSettings,
+        var leatherPacketItem = new WearableStorageItem(
+                wearableSettings,
+                3,
+                1,
+                LeatherPacketScreenHandler::new,
+                "container.leather_packet"
+        );
+        LEATHER_PACKET = register(ItemGroups.TOOLS, Identifiers.of("leather_packet"), leatherPacketItem);
+
+        var leatherBagItem = new WearableStorageItem(
+                wearableSettings,
                 3,
                 3,
-                SmallBackPackScreenHandler::new,
-                "container.small_backpack"
+                LeatherBagScreenHandler::new,
+                "container.leather_bag"
         );
-        SMALL_BACKPACK = register(ItemGroups.INVENTORY, Identifiers.of("small_backpack"), smallBackPackItem);
+        LEATHER_BAG = register(ItemGroups.TOOLS, Identifiers.of("leather_bag"), leatherBagItem);
 
-        var middleBackPackItem = new BackPackItem(
-                simpleSettings,
+        var simpleBackPackItem = new WearableStorageItem(
+                wearableSettings,
                 5,
                 5,
-                MiddleBackPackScreenHandler::new,
-                "container.middle_backpack"
+                SimpleBackPackScreenHandler::new,
+                "container.simple_backpack"
         );
-        MIDDLE_BACKPACK = register(ItemGroups.INVENTORY, Identifiers.of("middle_backpack"), middleBackPackItem);
+        SIMPLE_BACKPACK = register(ItemGroups.TOOLS, Identifiers.of("simple_backpack"), simpleBackPackItem);
 
-        var bigBackPackItem = new BackPackItem(
-                simpleSettings,
+        var campingBackPackItem = new WearableStorageItem(
+                wearableSettings,
                 6,
                 6,
-                BigBackPackScreenHandler::new,
-                "container.big_backpack"
+                CampingBackPackScreenHandler::new,
+                "container.camping_backpack"
         );
-        BIG_BACKPACK = register(ItemGroups.INVENTORY, Identifiers.of("big_backpack"), bigBackPackItem);
+        CAMPING_BACKPACK = register(ItemGroups.TOOLS, Identifiers.of("camping_backpack"), campingBackPackItem);
     }
 }

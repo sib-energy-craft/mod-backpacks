@@ -1,0 +1,15 @@
+{
+  "type": "sib_energy_craft:iron_crafting_table_tool",
+  "category": "misc",
+  "group": "dressed_leather",
+  "tool": {
+    "item": "sib_energy_craft:iron_hammer"
+  },
+  "source": {
+    "item": "minecraft:leather"
+  },
+  "output": {
+    "item": "sib_energy_craft:dressed_leather",
+    "count": 1
+  }
+}

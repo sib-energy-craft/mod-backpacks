@@ -10,10 +10,10 @@ import org.jetbrains.annotations.NotNull;
  * @author sibmaks
  * @since 0.0.1
  */
-public class MiddleBackPackScreen extends BackPackScreen<MiddleBackPackScreenHandler> {
-    private static final Identifier TEXTURE = Identifiers.of("textures/gui/container/middle_backpack.png");
+public class SimpleBackPackScreen extends WearableStorageScreen<SimpleBackPackScreenHandler> {
+    private static final Identifier TEXTURE = Identifiers.of("textures/gui/container/simple_backpack.png");
 
-    public MiddleBackPackScreen(@NotNull MiddleBackPackScreenHandler handler,
+    public SimpleBackPackScreen(@NotNull SimpleBackPackScreenHandler handler,
                                 @NotNull PlayerInventory inventory,
                                 @NotNull Text title) {
         super(TEXTURE, handler, inventory, title, 176, 206, 92);

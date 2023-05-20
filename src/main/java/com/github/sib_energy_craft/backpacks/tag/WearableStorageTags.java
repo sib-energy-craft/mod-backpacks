@@ -12,10 +12,10 @@ import net.minecraft.registry.tag.TagKey;
  * @since 0.0.1
  */
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
-public final class BackPackTags {
-    public static final TagKey<Item> BACKPACK;
+public final class WearableStorageTags {
+    public static final TagKey<Item> WEARABLE_STORAGE;
 
     static {
-        BACKPACK =  TagKey.of(RegistryKeys.ITEM, Identifiers.of("backpacks"));
+        WEARABLE_STORAGE =  TagKey.of(RegistryKeys.ITEM, Identifiers.of("wearable_storage"));
     }
 }

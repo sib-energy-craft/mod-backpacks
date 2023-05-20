@@ -1,10 +1,15 @@
 {
-  "item.sib_energy_craft.small_backpack": "Маленький рюкзак",
-  "container.small_backpack": "Маленький рюкзак",
+  "item.sib_energy_craft.dressed_leather": "Выделанная кожа",
 
-  "item.sib_energy_craft.middle_backpack": "Средний рюкзак",
-  "container.middle_backpack": "Средний рюкзак",
+  "item.sib_energy_craft.leather_packet": "Кожанный карман",
+  "container.leather_packet": "Кожанный карман",
 
-  "item.sib_energy_craft.big_backpack": "Большой рюкзак",
-  "container.big_backpack": "Большой рюкзак"
+  "item.sib_energy_craft.leather_bag": "Кожанный мешок",
+  "container.leather_bag": "Кожанный мешок",
+
+  "item.sib_energy_craft.simple_backpack": "Простой рюкзак",
+  "container.simple_backpack": "Простой рюкзак",
+
+  "item.sib_energy_craft.camping_backpack": "Походный рюкзак",
+  "container.camping_backpack": "Походный рюкзак"
 }

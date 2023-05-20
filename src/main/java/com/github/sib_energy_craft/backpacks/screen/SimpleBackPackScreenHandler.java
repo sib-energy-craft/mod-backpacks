@@ -10,15 +10,15 @@ import org.jetbrains.annotations.NotNull;
  * @author sibmaks
  * @since 0.0.1
  */
-public class MiddleBackPackScreenHandler extends BackPackScreenHandler {
+public class SimpleBackPackScreenHandler extends WearableStorageScreenHandler {
 
-    public MiddleBackPackScreenHandler(int syncId,
+    public SimpleBackPackScreenHandler(int syncId,
                                        @NotNull ItemStack backPackStack,
                                        @NotNull PlayerInventory playerInventory) {
-        super(Screens.MIDDLE_BACKPACK, syncId, playerInventory, backPackStack, 182, 124, 44, 22);
+        super(Screens.SIMPLE_BACKPACK, syncId, playerInventory, backPackStack, 182, 124, 44, 22);
     }
 
-    public MiddleBackPackScreenHandler(int syncId,
+    public SimpleBackPackScreenHandler(int syncId,
                                        @NotNull PlayerInventory inventory,
                                        @NotNull PacketByteBuf buf) {
         this(syncId, buf.readItemStack(), inventory);

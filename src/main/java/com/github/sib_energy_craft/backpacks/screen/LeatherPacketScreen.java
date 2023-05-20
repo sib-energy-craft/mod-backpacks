@@ -10,13 +10,13 @@ import org.jetbrains.annotations.NotNull;
  * @author sibmaks
  * @since 0.0.1
  */
-public class SmallBackPackScreen extends BackPackScreen<SmallBackPackScreenHandler> {
-    private static final Identifier TEXTURE = Identifiers.of("textures/gui/container/small_backpack.png");
+public class LeatherPacketScreen extends WearableStorageScreen<LeatherPacketScreenHandler> {
+    private static final Identifier TEXTURE = Identifiers.of("textures/gui/container/leather_packet.png");
 
-    public SmallBackPackScreen(@NotNull SmallBackPackScreenHandler handler,
+    public LeatherPacketScreen(@NotNull LeatherPacketScreenHandler handler,
                                @NotNull PlayerInventory inventory,
                                @NotNull Text title) {
-        super(TEXTURE, handler, inventory, title, 176, 170, 96);
+        super(TEXTURE, handler, inventory, title, 176, 130, 92);
     }
 
 }
