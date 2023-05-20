@@ -1,6 +1,7 @@
 package com.github.sib_energy_craft.backpacks.load;
 
 import com.github.sib_energy_craft.backpacks.item.BackPackItem;
+import com.github.sib_energy_craft.backpacks.screen.BigBackPackScreenHandler;
 import com.github.sib_energy_craft.backpacks.screen.MiddleBackPackScreenHandler;
 import com.github.sib_energy_craft.backpacks.screen.SmallBackPackScreenHandler;
 import com.github.sib_energy_craft.energy_api.utils.Identifiers;
@@ -18,6 +19,7 @@ import static com.github.sib_energy_craft.sec_utils.utils.ItemUtils.register;
 public final class Items implements DefaultModInitializer {
     public static final BackPackItem SMALL_BACKPACK;
     public static final BackPackItem MIDDLE_BACKPACK;
+    public static final BackPackItem BIG_BACKPACK;
 
     static {
         var simpleSettings = new Item.Settings()
@@ -41,5 +43,14 @@ public final class Items implements DefaultModInitializer {
                 "container.middle_backpack"
         );
         MIDDLE_BACKPACK = register(ItemGroups.INVENTORY, Identifiers.of("middle_backpack"), middleBackPackItem);
+
+        var bigBackPackItem = new BackPackItem(
+                simpleSettings,
+                6,
+                6,
+                BigBackPackScreenHandler::new,
+                "container.big_backpack"
+        );
+        BIG_BACKPACK = register(ItemGroups.INVENTORY, Identifiers.of("big_backpack"), bigBackPackItem);
     }
 }
