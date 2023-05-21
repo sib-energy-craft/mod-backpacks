@@ -3,6 +3,7 @@ package com.github.sib_energy_craft.backpacks.screen;
 import com.github.sib_energy_craft.backpacks.item.WearableStorageItem;
 import com.github.sib_energy_craft.backpacks.screen.slot.WearableStorageSlot;
 import lombok.Getter;
+import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerFactory;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventory;
@@ -23,7 +24,6 @@ public abstract class WearableStorageScreenHandler extends ScreenHandler {
     private final WearableStorageItem wearableStorageItem;
     @Getter
     private final Inventory playerInventory;
-    private final SimpleInventory backPackInventory;
 
     protected WearableStorageScreenHandler(@NotNull ScreenHandlerType<?> type,
                                            int syncId,
@@ -53,7 +53,7 @@ public abstract class WearableStorageScreenHandler extends ScreenHandler {
         }
 
         int backPackWidth = wearableStorageItem.getWidth();
-        this.backPackInventory = _wearableStorageItem.getInventory(backPackStack);
+        SimpleInventory backPackInventory = _wearableStorageItem.getInventory(backPackStack);
         for (int i = 0; i < backPackInventory.size(); i++) {
             this.addSlot(new WearableStorageSlot(backPackInventory, i, backPackX + (i % backPackWidth) * 18,
                     backPackY + (i / backPackWidth) * 18));
