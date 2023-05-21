@@ -74,9 +74,12 @@ public class WearableStorageItem extends Item implements ShapedRecipeOnCraft {
                                                      @NotNull PlayerEntity player,
                                                      @NotNull Hand hand) {
         var itemStack = player.getStackInHand(hand);
+        if (world.isClient) {
+            return TypedActionResult.success(itemStack);
+        }
         boolean inSneakingPose = player.isInSneakingPose();
-        if(inSneakingPose) {
-            return  TypedActionResult.pass(itemStack);
+        if (inSneakingPose) {
+            return TypedActionResult.pass(itemStack);
         }
         player.openHandledScreen(new WearableStorageScreenHandlerFactory(screenHandlerFactory, itemStack, screenTitle));
         player.incrementStat(Stats.USED.getOrCreateStat(this));

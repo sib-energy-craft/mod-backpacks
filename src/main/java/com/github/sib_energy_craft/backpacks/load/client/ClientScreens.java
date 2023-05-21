@@ -11,7 +11,7 @@ import static com.github.sib_energy_craft.sec_utils.utils.ScreenUtils.register;
  * @author sibmaks
  * @since 0.0.1
  */
-public final class Screens implements DefaultClientModInitializer {
+public final class ClientScreens implements DefaultClientModInitializer {
     public static final ScreenHandlerType<LeatherPacketScreenHandler> LEATHER_PACKET;
     public static final ScreenHandlerType<LeatherBagScreenHandler> LEATHER_BAG;
     public static final ScreenHandlerType<SimpleBackPackScreenHandler> SIMPLE_BACKPACK;

@@ -1,6 +1,6 @@
 package com.github.sib_energy_craft.backpacks.screen;
 
-import com.github.sib_energy_craft.backpacks.load.client.Screens;
+import com.github.sib_energy_craft.backpacks.load.client.ClientScreens;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.PacketByteBuf;
@@ -15,7 +15,7 @@ public class LeatherBagScreenHandler extends WearableStorageScreenHandler {
     public LeatherBagScreenHandler(int syncId,
                                    @NotNull ItemStack backPackStack,
                                    @NotNull PlayerInventory playerInventory) {
-        super(Screens.LEATHER_BAG, syncId, playerInventory, backPackStack, 142, 84, 62, 22);
+        super(ClientScreens.LEATHER_BAG, syncId, playerInventory, backPackStack, 142, 84, 62, 22);
     }
 
     public LeatherBagScreenHandler(int syncId,

@@ -14,7 +14,10 @@
       "com.github.sib_energy_craft.backpacks.load.Items"
     ],
     "client": [
-      "com.github.sib_energy_craft.backpacks.load.client.Screens"
+      "com.github.sib_energy_craft.backpacks.load.client.ClientScreens"
+    ],
+    "server": [
+      "com.github.sib_energy_craft.backpacks.load.server.ServerScreens"
     ]
   },
   "mixins": [

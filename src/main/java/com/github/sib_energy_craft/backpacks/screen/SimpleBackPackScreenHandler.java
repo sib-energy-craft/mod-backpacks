@@ -1,6 +1,6 @@
 package com.github.sib_energy_craft.backpacks.screen;
 
-import com.github.sib_energy_craft.backpacks.load.client.Screens;
+import com.github.sib_energy_craft.backpacks.load.client.ClientScreens;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.PacketByteBuf;
@@ -15,7 +15,7 @@ public class SimpleBackPackScreenHandler extends WearableStorageScreenHandler {
     public SimpleBackPackScreenHandler(int syncId,
                                        @NotNull ItemStack backPackStack,
                                        @NotNull PlayerInventory playerInventory) {
-        super(Screens.SIMPLE_BACKPACK, syncId, playerInventory, backPackStack, 182, 124, 44, 22);
+        super(ClientScreens.SIMPLE_BACKPACK, syncId, playerInventory, backPackStack, 182, 124, 44, 22);
     }
 
     public SimpleBackPackScreenHandler(int syncId,

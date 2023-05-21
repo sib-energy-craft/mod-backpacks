@@ -23,7 +23,6 @@ public abstract class WearableStorageScreenHandler extends ScreenHandler {
     private final WearableStorageItem wearableStorageItem;
     @Getter
     private final Inventory playerInventory;
-    private final SimpleInventory backPackInventory;
 
     protected WearableStorageScreenHandler(@NotNull ScreenHandlerType<?> type,
                                            int syncId,
@@ -53,7 +52,7 @@ public abstract class WearableStorageScreenHandler extends ScreenHandler {
         }
 
         int backPackWidth = wearableStorageItem.getWidth();
-        this.backPackInventory = _wearableStorageItem.getInventory(backPackStack);
+        SimpleInventory backPackInventory = _wearableStorageItem.getInventory(backPackStack);
         for (int i = 0; i < backPackInventory.size(); i++) {
             this.addSlot(new WearableStorageSlot(backPackInventory, i, backPackX + (i % backPackWidth) * 18,
                     backPackY + (i / backPackWidth) * 18));
