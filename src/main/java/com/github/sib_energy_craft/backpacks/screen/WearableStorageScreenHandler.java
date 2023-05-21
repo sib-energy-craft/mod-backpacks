@@ -3,6 +3,7 @@ package com.github.sib_energy_craft.backpacks.screen;
 import com.github.sib_energy_craft.backpacks.item.WearableStorageItem;
 import com.github.sib_energy_craft.backpacks.screen.slot.WearableStorageSlot;
 import lombok.Getter;
+import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerFactory;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventory;

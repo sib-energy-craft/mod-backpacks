@@ -40,7 +40,7 @@ public class WearableStorageScreenHandlerFactory implements NamedScreenHandlerFa
     public ScreenHandler createMenu(int syncId,
                                     @NotNull PlayerInventory playerInventory,
                                     @NotNull PlayerEntity player) {
-        return screenHandlerFactory.create(syncId, backPackStack, playerInventory);
+        return screenHandlerFactory.create(syncId, playerInventory, backPackStack);
     }
 
     @Override
@@ -56,13 +56,13 @@ public class WearableStorageScreenHandlerFactory implements NamedScreenHandlerFa
          * Create screen handler for backpack item
          *
          * @param syncId sync id
-         * @param backPackStack backpack item stack
          * @param playerInventory player inventory
+         * @param backPackStack backpack item stack
          * @return screen handler for backpack
          */
         @NotNull ScreenHandler create(int syncId,
-                                      @NotNull ItemStack backPackStack,
-                                      @NotNull PlayerInventory playerInventory);
+                                      @NotNull PlayerInventory playerInventory,
+                                      @NotNull ItemStack backPackStack);
 
     }
 }
