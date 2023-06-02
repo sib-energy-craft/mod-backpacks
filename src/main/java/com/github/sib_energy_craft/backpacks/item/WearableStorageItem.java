@@ -3,10 +3,7 @@ package com.github.sib_energy_craft.backpacks.item;
 import lombok.Getter;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.inventory.CraftingInventory;
-import net.minecraft.inventory.Inventories;
-import net.minecraft.inventory.Inventory;
-import net.minecraft.inventory.SimpleInventory;
+import net.minecraft.inventory.*;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
@@ -127,7 +124,7 @@ public class WearableStorageItem extends Item implements ShapedRecipeOnCraft {
                     backPackStack.setCount(0);
                     blockInventory.setStack(i, toInsert);
                     inserted = true;
-                } else if(blockInventoryStack.isItemEqual(backPackStack) &&
+                } else if(ItemStack.areItemsEqual(blockInventoryStack, backPackStack) &&
                         blockInventoryStack.getCount() < blockInventoryStack.getMaxCount()) {
                     int maxToInsert = blockInventoryStack.getMaxCount() - blockInventoryStack.getCount();
                     int toInsert = Math.min(maxToInsert, backPackStack.getCount());
@@ -186,7 +183,7 @@ public class WearableStorageItem extends Item implements ShapedRecipeOnCraft {
 
     @Override
     public void onCraft(@NotNull ShapedRecipe shapedRecipe,
-                        @NotNull CraftingInventory craftingInventory,
+                        @NotNull RecipeInputInventory craftingInventory,
                         @NotNull DynamicRegistryManager dynamicRegistryManager,
                         @NotNull ItemStack itemStack) {
         var craftedInventory = new SimpleInventory(capacity);

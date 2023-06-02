@@ -1,7 +1,7 @@
 package com.github.sib_energy_craft.backpacks.mixin;
 
 import com.github.sib_energy_craft.backpacks.item.ShapedRecipeOnCraft;
-import net.minecraft.inventory.CraftingInventory;
+import net.minecraft.inventory.RecipeInputInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.recipe.ShapedRecipe;
 import net.minecraft.registry.DynamicRegistryManager;
@@ -18,13 +18,13 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public class ShapedRecipeMixin {
 
     @Inject(method = "craft", at = @At("RETURN"))
-    public void craft(CraftingInventory craftingInventory,
+    public void craft(RecipeInputInventory recipeInputInventory,
                       DynamicRegistryManager registryManager,
                       CallbackInfoReturnable<ItemStack> callbackInfoReturnable) {
         var outputStack = callbackInfoReturnable.getReturnValue();
         var item = outputStack.getItem();
         if(item instanceof ShapedRecipeOnCraft modifiedItemStackOnShapedRecipe) {
-            modifiedItemStackOnShapedRecipe.onCraft(getThis(), craftingInventory, registryManager, outputStack);
+            modifiedItemStackOnShapedRecipe.onCraft(getThis(), recipeInputInventory, registryManager, outputStack);
         }
     }
 
